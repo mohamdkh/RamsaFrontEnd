@@ -1,0 +1,14 @@
+.distanciate-button{
+    margin-right:5px;
+    margin-bottom:5px;
+}
+.blockAction{
+    pointer-events: none;
+}
+.scrollablediv{
+    display: block;
+    overflow-y: auto;
+    overflow-x:hidden;
+    height: 16%;
+    width: 100%;
+}

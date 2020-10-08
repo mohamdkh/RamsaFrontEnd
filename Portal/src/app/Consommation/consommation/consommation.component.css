@@ -1,0 +1,43 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
+.SelectArea select{
+    margin-right: 4%;
+}
+body{
+    background-color: #d9dade;
+}
+span{
+    font-size:15px;
+}
+a{
+  text-decoration:none; 
+  color: #0062cc;
+  border-bottom:2px solid #0062cc;
+}
+.box{
+    padding:0px 0px;
+}
+
+.box-part{
+    border-radius:0;
+    padding:0;
+    margin:0;
+    height: 76%;
+    box-shadow: black;
+}
+.text{
+    margin:20px 0px;
+}
+
+.fa{
+     color:#4183D7;
+}
+.title h5{
+    color:blue
+}
+.scrollablediv{
+    display: block;
+    overflow-y: auto;
+    overflow-x:hidden;
+    height: 60%;
+    width: 100%;
+}

@@ -1,0 +1,14 @@
+#etage{
+    background-color: blueviolet;
+    color:white;
+}
+#secteuHydro{
+    background-color: blueviolet;
+    color:white;
+}
+.etagebloc{
+    margin-bottom: 5px;
+}
+.hidebloc{
+    display: none;
+  }

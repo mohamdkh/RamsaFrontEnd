@@ -1,0 +1,75 @@
+<div class="wrapper d-flex align-items-stretch">
+    <app-sidebar></app-sidebar>
+    <div class="container" style="margin-top: 3%;">
+        <div class="row">
+            <h3 class="col-md-8 ">SECTEURS HYDRAULIQUES</h3>
+            <div class="btn-group dropright  offset-md-3" [ngClass]="{hidebloc: role!='admin'}">
+                <button class="nav-link dropdown-toggle btn btn-primary" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-plus-square" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" routerLink = "../AjouterSecteurHydraulique" >Ajouter Un secteur Hydraulique</a>
+                  <a class="dropdown-item" routerLink = "../AjouterSecteurCommercial" >Ajouter Un secteur Commercial</a>
+                </div>
+              </div>
+        </div>
+        <div class="row etagebloc" >
+            <label class="col-md-3">Etage:</label>
+            <select class="form-control col-md-3 offset-md-1" id="etage" title="Localité"
+                (click)="SelectSecHydroPerEtage()">
+                <option selected disabled>{{currentEtage}}</option>
+                <option *ngFor="let item of listEtage">{{item}}</option>
+            </select>
+        </div>
+        <div class="row" style="margin-bottom: 3%;">
+            <label class="col-md-3">Nom de secteur :</label>
+            <select class="form-control col-md-3 offset-md-1" id="secteuHydro" title="secteur"
+                (click)="SelectSecteursCom()">
+                <option selected disabled> {{currentSecteur}}</option>
+                <option *ngFor="let item of SecteursHydrauliques">{{item.nom}}</option>
+            </select>
+
+        </div>
+        <div class="row">
+            <p style="color:blue;" >{{status}}</p>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Etage</th>
+                    <th>Secteur Hydrolique</th>
+                    <th>Secteur Commercial</th>
+                    <th>Pourcentage d'appartenance</th>
+                    <th>
+                        <div class="row">
+                            <a style="margin-right: 5px" title="Voir la consommation de ce secteur"
+                                [ngClass]="{hidebloc: role!=null}"
+                            >
+                                <i class="fa fa-eye btn btn-info" aria-hidden="true"></i> </a>
+                            <a (click)="Delete()"
+                            [ngClass]="{hidebloc: role!='admin'}"
+                                style="margin-right: 5px" title="Supprimer"><i class="fa fa-trash btn btn-danger"
+                                    aria-hidden="true"></i> </a>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of SecteursCommerciaux">
+                    <td>{{currentEtage}}</td>
+                    <td>{{currentSecteur}}</td>
+
+                    <td>
+                        <a  [routerLink] = "['/SecteurCommercial',{ secteur: item.nomSecteurCom }]" 
+                            title="voir la subdivision de ce secteur sur les secteurs hydroliques">
+                            {{item.nomSecteurCom}}
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        {{item.tauxAffectHydroToCom*100}} %
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

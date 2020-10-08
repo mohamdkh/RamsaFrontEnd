@@ -1,0 +1,39 @@
+<div class="wrapper d-flex align-items-stretch" style="height: 100%;">
+    <nav id="sidebar">
+        <div class="custom-menu">
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+    </button>
+</div>
+      <div class="img bg-wrap text-center py-4" style="background-image: url(assets/RAMSALogo.gif)">
+          <div class="user-logo">
+              <div class="img" ></div>
+              <h3 style="padding-top: 10px; color: black;" th:text="${#httpServletRequest.remoteUser}"></h3>
+          </div>
+      </div>
+<ul class="list-unstyled components mb-5">
+  <li [ngClass]="{active: href==='Consommation'}" id="Consommation">
+    <a routerLink = "/Consommation"><span class="fa fa-home mr-3"></span> Accueil</a>
+  </li>
+  <li [ngClass]="{active: href==='SecteurHydraulique' || href ==='AjouterSecteurHydraulique' || href=== 'AjouterSecteurCommercial' || href ==='SecteurCommercial'}" id="SecteurHydraulique">
+    <a routerLink = "/SecteurHydraulique"><i class="fa fa-sort-amount-asc" aria-hidden="true"></i> Affectation</a>
+  </li>
+  <li  [ngClass]="{active: href==='UploadData',hidebloc:role!='admin'}" id="UploadData">
+    <a  routerLink = "/UploadData"><i class="fa fa-upload" aria-hidden="true"></i> Importation des données</a>
+  </li>
+  <li [ngClass]="{active: href==='Statistiques'}" id="Statistiques">
+    <a 
+    routerLink = "/Statistiques"><i class="fa fa-bar-chart" aria-hidden="true"></i> Statistiques</a>
+  </li>
+  <li [ngClass]="{active: href==='Configuration',hidebloc:role!='admin'}">
+    <a routerLink = "/Configuration"><i class="fa fa-cogs " aria-hidden="true"> </i>   Configuration</a>
+  </li>
+  <li>
+    <a routerLink = "/Login" (click)="Deconnecter()"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion</a>
+  </li>
+</ul>
+</nav>
+
+<!-- Page Content  -->
+<div id="content" class="p-4 p-md-5 pt-5">
+</div>
+</div>

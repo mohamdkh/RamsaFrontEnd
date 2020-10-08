@@ -1,0 +1,80 @@
+<div class="wrapper d-flex align-items-stretch">
+    <app-sidebar></app-sidebar>
+    <div class="container" style="margin-top: 3%;">
+        <div id="page-content" style="min-height: 306px;">
+
+            <div class="block">
+                <!-- Search Styles Title -->
+                <div class="block-title">
+                    <ul class="nav nav-tabs" data-toggle="tabs">
+                        <li class="active" id="inscription" style="margin-right: 5px;"><a class="myClickableThingy"  (click)="TogleBlocs($event)">Utilisateur </a></li>
+                        <li class="" id="ConfigRelevee"><a  class="myClickableThingy" (click)="TogleBlocs($event)">Type Relevé</a></li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div [ngClass]="{hidebloc: showedElement=='2'}" class="tab-pane active"  id="Info">  
+                        <div class="card-header">
+                            <h4>Ajouter un Utilisateur</h4>
+                        </div>
+                        <div class="card-body row">
+                            <form action="">
+                            <label for="" class="col-md-6">Nom d'utilisateur:</label>
+                            <input type="text" class="col-md-4" id="inputUsername" placeholder="Nom d'utilisateur" required>
+                            <label for="" class="col-md-6">Mot de passe :</label>
+                            <input type="text" class="col-md-4" id="inputPassword" placeholder="Mot de passe" required>
+                            <label for="" class="col-md-6">Rôle :</label>
+                            <select class="col-md-4" title="Role" id="inputRole" required>
+                                <option  selected disabled>Selectionner un rôle</option>
+                                <option value="admin">admin</option>
+                                <option value="User">user</option>
+                                </select>
+                                <button class="offset-md-6 col-md-4 btn btn-primary" (click)="SaveUser()"> Enregistrer</button>
+                        </form>
+                        </div>
+                    </div>
+                    <div class="tab-pane active" id="Detail" [ngClass]="{hidebloc: showedElement=='1'}">
+                        <div class="card-header">
+                            <h4>Ajouter un type</h4>
+                        </div>
+                        <div class="card-body row">
+                            <form action="">
+                            <label for="" class="col-md-6">ID  :</label>
+                            <input type="text" class="col-md-4" placeholder="ID "  id="inputId" required>
+                            <label for="" class="col-md-6">Description :</label>
+                            <input type="text" class="col-md-4" placeholder="Description" id="inputdescription" required>
+                                <button class="offset-md-6 col-md-4 btn btn-primary" (click)="SaveType()"> Enregistrer</button>
+                        </form>
+                        </div>
+                        <div class="card-header">
+                            <h4>List des Types</h4>
+                        </div>
+                        <div class="card-body row">
+                            <table class="table">
+                                <thead>
+                                    <th>ID</th>
+                                    <th>Description</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of TypeList">
+                                        <td>{{item.id_type}}</td>
+                                        <td>{{item.description}}</td>
+                                        <td><a (click)="Delete(item.id_type)"
+                                            
+                                            style="margin-right: 5px" title="Supprimer"><i class="fa fa-trash btn btn-danger"
+                                                    aria-hidden="true"></i> </a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                       </div>
+
+
+                </div>
+            </div>
+
+
+            <!-- END Content -->
+        </div>
+    </div>
+
+</div>

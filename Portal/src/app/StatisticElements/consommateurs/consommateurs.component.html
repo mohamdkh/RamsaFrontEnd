@@ -1,0 +1,26 @@
+<div class="container">
+    <form class="row" action="jsjdsqodlk" method="GET">
+        <div class="col-md-4">
+            <select  class="form-control" (change)="SelectSecteursHydauliques($event)">
+                <option [ngValue]="currentEtage" disabled selected>{{currentEtage}}</option>
+                <option *ngFor="let item of listEtage">{{item}}</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <select class="form-control" id="secteur">
+                <option  [ngValue]="currentSecteur" disabled selected>{{currentSecteur}}</option>
+                <option *ngFor="let item of listSecteurHydraulique">{{item}}</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <select class="form-control" id="Year" (click)="GetData()">
+                <option [ngValue]="currentAnnee" disabled selected>{{currentAnnee}}</option>
+                <option *ngFor="let item of AnneeDisponibles" >{{item}}</option>
+              </select>
+        </div>
+
+    </form>
+    <div class="row">
+        <canvas id="lineChart"></canvas>
+    </div>
+</div>

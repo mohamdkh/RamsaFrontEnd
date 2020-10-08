@@ -1,0 +1,89 @@
+<div class="wrapper d-flex align-items-stretch">
+    <app-sidebar></app-sidebar>
+    <div class="container" style="margin-top: 3%;">
+        <div class="col-md-10 offset-md-1 col-xs-12">
+			<div class="card">
+				<div class="card-header">
+					<h5>Ajout d'un secteur commercial</h5>
+				
+				</div>
+				
+					<div class="card-body">
+					<form th:action="@{saveSecteurCommercial}" method="post">
+						<div class="row" style="margin-bottom: 10px">
+                            <label class="col-md-4">Nom de Secteur Commercial:</label> 
+                            <input
+								type="text"
+								class="col-md-3 offset-md-2 blockAction" placeholder="Exemple: 10-012"
+								name="NomSecteurCom"
+                                id="NomSecteurCom"
+                                />
+						</div>
+						<div class="row">
+							<label class="col-md-8">Affecté aux secteurs Hydrauliques
+								suivants:</label>
+							<table class="table col-md-12">
+								<thead>
+									<tr>
+										<th>Nom Secteur Hydraulique</th>
+										<th>Pourcentage d'appartenance</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr *ngFor="let item of SecteurData" >
+										<td >{{item.status}}</td>
+										<td >{{item.tauxAffectHydroToCom*100}}%</td>
+										<td></td>
+									</tr>
+									<tr id="inputNewAffectation">
+                                        <td><select class="form-control col-md-8"
+                                            id="NomSecteurHydro"
+											name="NomSecteurHydro">
+												<option selected disabled>Secteur Hydraulique</option>
+												<option *ngFor="let item of listSecteurHydro"
+													>{{item}}</option>
+										</select></td>
+										<td>
+                                        <input type="text" placeholder="Example :50"
+                                            id="TauxAffectHydroToCom"
+											name="TauxAffectHydroToCom" />
+											
+											</td>
+                                        <td><button type="submit" title="Enregistrer" id="Enregistrer"
+											class="fa fa-check btn btn-warning" aria-hidden="true" (click)="Enregistrer()"></button></td>
+
+									</tr>
+								</tbody>
+							</table>
+
+						</div>
+					
+						</form>
+							<div class="row">
+                            <button 
+                            (click)="ValiderSecteur()"
+                                id="validerOpp"
+								class="col-md-3 offset-md-5 btn btn-primary">
+								Valider
+							</button>
+							<button class="col-md-3 offset-md-1 btn btn-danger" (click)="AnnulerOps()">
+								Annuler L'opération
+							</button>
+						</div>
+					</div>
+				<p style="color:red;" th:text="${errors}"></p>
+				
+			</div>
+		</div>
+		<div class="container scrollablediv">
+		 	<p class="col-md-12" style="color:red;">Les secteurs Manquants :</p>
+		 	<div class="row " >
+                 
+		 	<div class="" *ngFor="let item of SecteursIndefinies" id="errors-list">
+		 	 <button  class="btn btn-danger distanciate-button" (click)="SelectSecteurIndefinie($event)" id={{item}}>{{item}}</button>
+		 	</div>	
+		 	</div>
+		 	</div>
+    </div>
+</div>

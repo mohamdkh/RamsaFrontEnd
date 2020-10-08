@@ -1,0 +1,62 @@
+<div class="wrapper d-flex align-items-stretch">
+    <app-sidebar></app-sidebar>
+    <div style="margin-top: 3%; ">
+        <h3 class="title" >STATISTIQUE GENERALE</h3>
+        <div  class="row">
+            <h4 class="col-md-12">Evolution de :</h4>
+        <div class="col-md-3 navbarStatistic" >
+            <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+                <label>
+                  <input type="radio" name="options"  class="inputRadio" width="25" height="25"
+                  value="ConsomSecteur"
+                  (click)="SelectStatistique($event)"
+                  />
+                  <span class="radio"></span>
+                  <span class="label" >Consommation Total/Secteur</span>
+                </label>
+                <label>
+                  <input type="radio" name="options"  class="inputRadio" 
+                  value="NbreClient"
+                  (click)="SelectStatistique($event)"
+                  />
+                  <span class="radio"></span>
+                  <span class="label">Nombre de Client/Periode</span>
+                </label>
+                <label>
+                  <input type="radio" name="options"  class="inputRadio" 
+                  value="ConsomEtage"
+                  (click)="SelectStatistique($event)"
+                  />
+                  <span class="radio"></span>
+                  <span class="label">Consommation Total/Etage</span>
+                </label>
+                <label>
+                  <input type="radio" name="options"  class="inputRadio"
+                  value="ConsomAnnee"
+                  (click)="SelectStatistique($event)"
+                  />
+                  <span class="radio"></span>
+                  <span class="label">Consommation Total/Année</span>
+                </label>
+                <label>
+                  <input type="radio" name="options"  class="inputRadio"
+                  value="RendementSecteur"
+                  (click)="SelectStatistique($event)"
+                  />
+                  <span class="radio"></span>
+                  <span class="label">Rendement/Secteur</span>
+                </label>
+              </div>
+              
+        </div>
+        <div class="col-md-9">
+            <app-consom-secteur id="ConsomSecteur"></app-consom-secteur>
+            <app-consommateurs id="NbreClient"></app-consommateurs>
+            <app-consom-etage id="ConsomEtage"></app-consom-etage>
+            <app-consom-annee id="ConsomAnnee"></app-consom-annee>
+            <app-rendement-secteur id="RendementSecteur"></app-rendement-secteur>
+            
+        </div>
+    </div>
+    </div>
+</div>

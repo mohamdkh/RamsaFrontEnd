@@ -1,0 +1,38 @@
+<div class="wrapper d-flex align-items-stretch">
+    <app-sidebar></app-sidebar>
+    <div class="container" style="margin-top: 3%;">
+        <div class="body-container-wrapper">
+            <div class="row">
+                <button class="offset-md-11 col-md-1 btn btn-warning" title="Voir un Exemple" (click)="ToggleShowExample()"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></button>
+            </div>
+            <div class="row">
+                <img src="assets/DataStructureExample.PNG" class="col-md-11 " id="DataStructureExample" class="visibleImg">
+            </div>
+            <div class="body-container">
+                <div class="page-center">
+                    <i class="fa fa-cloud" aria-hidden="true"></i>
+                    <h2>importer votre Fichier <strong> -Format CSV-</strong></h2>
+                    <a class="upload" id="call-to-action" (click)=" ClickInputFile()"><span>Select Your
+                            Upload</span></a>
+                    <form id="upload" enctype="multipart/form-data">
+                        <div id="drop">
+                            <input type="file" name="upl"  class="upload-hidden"
+                                (change)="UploadFile($event)">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-container-wrapper">
+            <div class="footer-container">
+                <div *ngIf="fileUpload.status==='progress'">
+                    <div class="progress" style="height: 20px;margin-bottom:20px;">
+                      <div class="progress-bar" role="progressbar" [style.width.%]="fileUpload.message" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{fileUpload.message}}%</div>
+                    </div>
+                </div>
+                <div class="text-center text-danger">{{erreurs}}</div>
+            </div>
+        </div>
+    </div>
+</div>
